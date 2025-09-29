@@ -47,19 +47,6 @@ ATLAS deployment environments are defined in:
 
 aopcs_lambda/target/aws/environments/atlas_environment.py
 
-Each environment has a dedicated configuration file in the same folder.
-
-👉 See the [ATLAS AWS deployment environments documentation](https://kerlink.atlassian.net/wiki/spaces/ATLAS/pages/1134460929/Atlas+AWS+deployment+environments) for more details.
-
----
-
-### Deployment from GitLab
-
-Manual deployments to **preproduction** or **production** can be triggered here:  
-👉 [Launch GitLab pipeline](https://gitlab.klksi.fr/atlas/configuration-app/aopcs-lambda/-/pipelines/new)
-
-Make sure to launch the pipeline from the `develop` branch.
-
 ---
 
 ### ✅ Pipeline arguments
