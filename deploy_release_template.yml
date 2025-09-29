@@ -1,0 +1,38 @@
+
+spec:
+  inputs:
+    environment:
+---
+
+variables:
+  do_deploy: "true"
+
+# dummy job which always runs to prevent upstream trigger job from failing
+# because there are no jobs in downstream pipeline to run
+echo-upstream-vars:
+  stage: Delivery
+  script:
+    - echo $do_deploy
+    - echo $VERSION
+    - echo $ENVIRONMENT
+    - echo $CDK_VERSION
+  rules:
+    # run if triggered by upstream release pipeline
+    - if: $CI_PIPELINE_SOURCE == "pipeline"
+
+
+deploy-release:
+  stage: Delivery
+  extends: .deploy-app
+  environment: $[[ inputs.environment ]]
+  variables:
+    VERSION: ""  # Tag to deploy
+    ENVIRONMENT: $[[ inputs.environment ]]
+  before_script:
+    - npm install -g aws-cdk@$CDK_VERSION
+  rules:
+    # run if triggered by upstream release pipeline
+    - if: $do_deploy == "true" && $CI_PIPELINE_SOURCE == "pipeline"
+    # run if manually triggered
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "trigger"

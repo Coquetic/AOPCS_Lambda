@@ -1,0 +1,12 @@
+bucket_name = "atlas-resources-bucket-production"
+aopcs_path = "resources/aopcs/kineis"
+secret_manager_arn = "arn:aws:secretsmanager:eu-west-3:816069150588:secret:aopcs/kineis/api-2tTIWr"
+
+[lambda_configuration]
+    duration = 30
+    memory = 256
+    [lambda_configuration.environment_variables]
+        LOG_LEVEL = "DEBUG"
+        bucket_name = "atlas-resources-bucket-production"
+        aopcs_path = "resources/aopcs/kineis"
+        secret_manager_arn = "arn:aws:secretsmanager:eu-west-3:816069150588:secret:aopcs/kineis/api-2tTIWr"

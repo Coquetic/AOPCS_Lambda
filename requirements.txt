@@ -1,0 +1,7 @@
+aws-lambda-powertools[parser]==3.11.0
+boto3==1.38.3
+boto3-stubs[s3]==1.38.3
+pydantic==2.11.3
+pydantic_settings==2.9.1
+pytz
+requests

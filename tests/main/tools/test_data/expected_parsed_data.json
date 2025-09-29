@@ -1,0 +1,346 @@
+[
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "F1",
+            "date": "2025-05-15T05:03:02.250+00:00",
+            "anLongitude": 179.756,
+            "anLongitudeDrift": -24.972,
+            "nodalPeriod": 99.8853,
+            "semiMajorAxis": 7129848,
+            "semiMajorAxisDecay": 0.0,
+            "inclination": 98.372
+        },
+        "frameCheckSequence": 44229
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "FC",
+            "date": "2025-05-15T05:08:18.000+00:00",
+            "anLongitude": 249.51500000000001,
+            "anLongitudeDrift": -25.484,
+            "nodalPeriod": 101.94120000000001,
+            "semiMajorAxis": 7227421,
+            "semiMajorAxisDecay": 2.7,
+            "inclination": 99.006
+        },
+        "frameCheckSequence": 2829
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "16",
+            "date": "2025-05-15T06:29:35.250+00:00",
+            "anLongitude": 185.31900000000002,
+            "anLongitudeDrift": -24.345,
+            "nodalPeriod": 97.38250000000001,
+            "semiMajorAxis": 7010189,
+            "semiMajorAxisDecay": 13.4,
+            "inclination": 98.018
+        },
+        "frameCheckSequence": 42414
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MULTISAT",
+        "satelliteReference": {
+            "satelliteAddress": "58",
+            "date": "2025-05-15T04:26:45.875+00:00",
+            "anLongitude": 285.134,
+            "anLongitudeDrift": -24.465,
+            "nodalPeriod": 97.8587,
+            "semiMajorAxis": 7033000,
+            "semiMajorAxisDecay": 0.0,
+            "inclination": 98.029
+        },
+        "relativeSatellites": [
+            {
+                "satelliteAddressRelative": "62",
+                "deltaDateRelative": 4563.125
+            },
+            {
+                "satelliteAddressRelative": "74",
+                "deltaDateRelative": 3104.625
+            },
+            {
+                "satelliteAddressRelative": "7F",
+                "deltaDateRelative": 7479.125
+            },
+            {
+                "satelliteAddressRelative": "0",
+                "deltaDateRelative": -8200.0
+            }
+        ],
+        "frameCheckSequence": 10781
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "F2",
+            "date": "2025-05-15T05:01:58.625+00:00",
+            "anLongitude": 285.073,
+            "anLongitudeDrift": -24.893,
+            "nodalPeriod": 99.5738,
+            "semiMajorAxis": 7115016,
+            "semiMajorAxisDecay": 0.0,
+            "inclination": 98.355
+        },
+        "frameCheckSequence": 54401
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "F9",
+            "date": "2025-05-15T06:26:46.875+00:00",
+            "anLongitude": 220.258,
+            "anLongitudeDrift": -25.341,
+            "nodalPeriod": 101.3595,
+            "semiMajorAxis": 7199870,
+            "semiMajorAxisDecay": 0.0,
+            "inclination": 98.584
+        },
+        "frameCheckSequence": 1034
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MULTISAT",
+        "satelliteReference": {
+            "satelliteAddress": "AD",
+            "date": "2025-05-15T04:39:22.500+00:00",
+            "anLongitude": 354.289,
+            "anLongitudeDrift": -24.451999999999998,
+            "nodalPeriod": 97.80640000000001,
+            "semiMajorAxis": 7030522,
+            "semiMajorAxisDecay": 0.0,
+            "inclination": 97.973
+        },
+        "relativeSatellites": [
+            {
+                "satelliteAddressRelative": "BB",
+                "deltaDateRelative": 1715.875
+            },
+            {
+                "satelliteAddressRelative": "C4",
+                "deltaDateRelative": -1174.875
+            },
+            {
+                "satelliteAddressRelative": "CF",
+                "deltaDateRelative": 6088.625
+            },
+            {
+                "satelliteAddressRelative": "0",
+                "deltaDateRelative": -8200.0
+            }
+        ],
+        "frameCheckSequence": 42670
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "FB",
+            "date": "2025-05-15T03:55:43.250+00:00",
+            "anLongitude": 263.745,
+            "anLongitudeDrift": -25.34,
+            "nodalPeriod": 101.3604,
+            "semiMajorAxis": 7199930,
+            "semiMajorAxisDecay": 0.0,
+            "inclination": 98.72200000000001
+        },
+        "frameCheckSequence": 45536
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MULTISAT",
+        "satelliteReference": {
+            "satelliteAddress": "B",
+            "date": "2025-05-15T03:45:33.000+00:00",
+            "anLongitude": 226.294,
+            "anLongitudeDrift": -24.344,
+            "nodalPeriod": 97.3782,
+            "semiMajorAxis": 7009982,
+            "semiMajorAxisDecay": 14.5,
+            "inclination": 98.019
+        },
+        "relativeSatellites": [
+            {
+                "satelliteAddressRelative": "2C",
+                "deltaDateRelative": 2294.875
+            },
+            {
+                "satelliteAddressRelative": "0",
+                "deltaDateRelative": -8200.0
+            },
+            {
+                "satelliteAddressRelative": "0",
+                "deltaDateRelative": -8200.0
+            },
+            {
+                "satelliteAddressRelative": "0",
+                "deltaDateRelative": -8200.0
+            }
+        ],
+        "frameCheckSequence": 42825
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "AOP_MONOSAT",
+        "satelliteData": {
+            "satelliteAddress": "FD",
+            "date": "2025-05-15T04:32:32.000+00:00",
+            "anLongitude": 20.571,
+            "anLongitudeDrift": -25.142,
+            "nodalPeriod": 100.5676,
+            "semiMajorAxis": 7162293,
+            "semiMajorAxisDecay": 0.7000000000000001,
+            "inclination": 98.559
+        },
+        "frameCheckSequence": 19256
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "CS_10_SAT",
+        "counter": 15,
+        "index": 0,
+        "totalNumberOfMessages": 1,
+        "satellitesStatus": [
+            {
+                "satelliteAddress": "B",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "16",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "2C",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "58",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "62",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "74",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "7F",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "0",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "0",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "0",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            }
+        ],
+        "fcs": 59949
+    },
+    {
+        "broadcasterReference": "0",
+        "formatReference": "CS_10_SAT",
+        "counter": 15,
+        "index": 1,
+        "totalNumberOfMessages": 1,
+        "satellitesStatus": [
+            {
+                "satelliteAddress": "F1",
+                "payloadType": "ARGOS_4",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "AD",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "BB",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "C4",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "CF",
+                "payloadType": "KINEIS_V1",
+                "payloadUplinkMissionStatus": false,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "F9",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "FB",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": true
+            },
+            {
+                "satelliteAddress": "FC",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "F2",
+                "payloadType": "ARGOS_4",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": false
+            },
+            {
+                "satelliteAddress": "FD",
+                "payloadType": "ARGOS_3",
+                "payloadUplinkMissionStatus": true,
+                "payloadDownlinkMissionStatus": true
+            }
+        ],
+        "fcs": 20295
+    }
+]

@@ -1,0 +1,6 @@
+aws-lambda-typing
+freezegun
+moto~=5.0.28
+pytest~=8.3.4
+pytest-cov
+pytest-mock

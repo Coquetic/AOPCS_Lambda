@@ -1,0 +1,23 @@
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+venv
+*.egg-info
+.ruff_cache
+.mypy_cache
+.vscode
+.env
+.envrc
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+aopcs_lambda/target/aws/cdk.context.json
+**/node_modules
+package.json
+Makefile
+**.lock
+local_dev
+*.bin
+!tests/fixtures/files/zephyr.signed.confirmed.bin

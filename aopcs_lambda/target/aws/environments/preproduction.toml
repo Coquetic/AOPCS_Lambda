@@ -1,0 +1,14 @@
+bucket_name = "atlas-resources-bucket-preproduction"
+aopcs_path = "resources/aopcs/kineis"
+secret_manager_arn = "arn:aws:secretsmanager:eu-west-3:354918403859:secret:aopcs/kineis/api-hGg7hz"
+
+[lambda_configuration]
+    duration = 30
+    memory = 256
+    eventbridge_hour = 6
+    eventbridge_minute = 15
+    [lambda_configuration.environment_variables]
+        LOG_LEVEL = "DEBUG"
+        bucket_name = "atlas-resources-bucket-preproduction"
+        aopcs_path = "resources/aopcs/kineis"
+        secret_manager_arn = "arn:aws:secretsmanager:eu-west-3:354918403859:secret:aopcs/kineis/api-hGg7hz"

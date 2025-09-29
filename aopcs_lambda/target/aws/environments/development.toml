@@ -1,0 +1,14 @@
+bucket_name = "atlas-resources-bucket-development"
+aopcs_path = "resources/aopcs/kineis"
+secret_manager_arn = "arn:aws:secretsmanager:eu-west-3:277707127236:secret:aopcs/kineis/api-aFdMRV"
+
+[lambda_configuration]
+    duration = 30
+    memory = 256
+    eventbridge_hour = 6
+    eventbridge_minute = 5
+    [lambda_configuration.environment_variables]
+        LOG_LEVEL = "DEBUG"
+        bucket_name = "atlas-resources-bucket-development"
+        aopcs_path = "resources/aopcs/kineis"
+        secret_manager_arn = "arn:aws:secretsmanager:eu-west-3:277707127236:secret:aopcs/kineis/api-aFdMRV"

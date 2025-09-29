@@ -1,0 +1,11 @@
+severity:
+  - UNKNOWN
+  - HIGH
+  - CRITICAL
+
+misconfiguration:
+
+  scanners:
+    - cloudformation
+
+ignorefile: .trivyignore.yaml
