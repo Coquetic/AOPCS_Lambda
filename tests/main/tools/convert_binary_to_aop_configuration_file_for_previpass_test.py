@@ -16,6 +16,7 @@ class TestParseBinaryData:
 
     @pytest.fixture
     def binary_data(self) -> bytes:
+        # I removed the file for the public repo
         binary_path = Path(__file__).parent / "test_data" / "binary_data.bin"
         with open(binary_path, "rb") as f:
             return f.read()
