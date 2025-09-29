@@ -9,7 +9,7 @@ from .base_environment import BaseEnvironment
 class AtlasEnvironment(BaseEnvironment):
     """Enum representing the environment to deploy to."""
 
-    DEVELOPMENT = cdk.Environment(account="277707127236", region="eu-west-3")
-    VALIDATION = cdk.Environment(account="182399725777", region="eu-west-3")
-    PREPRODUCTION = cdk.Environment(account="354918403859", region="eu-west-3")
-    PRODUCTION = cdk.Environment(account="816069150588", region="eu-west-3")
+    DEVELOPMENT = cdk.Environment(account="XXXXXXXXXXXXX", region="your_region")
+    VALIDATION = cdk.Environment(account="XXXXXXXXXXXXX", region="your_region")
+    PREPRODUCTION = cdk.Environment(account="XXXXXXXXXXXXX", region="your_region")
+    PRODUCTION = cdk.Environment(account="XXXXXXXXXXXXX", region="your_region")
