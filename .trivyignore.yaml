@@ -1,3 +1,3 @@
 misconfigurations:
-  - id: AVD-AWS-0132  # Bucket does not encrypt data with a customer managed key.
-  - id: AVD-AWS-0096  # Queues should be encrypted with KMS key.
+  - id: AVD-AWS-XXXX  # Bucket does not encrypt data with a customer managed key.
+  - id: AVD-AWS-XXXX  # Queues should be encrypted with KMS key.
