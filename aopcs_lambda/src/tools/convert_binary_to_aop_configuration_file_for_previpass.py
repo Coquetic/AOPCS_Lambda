@@ -12,68 +12,24 @@ from aopcs_lambda.src.models.metadata_model import AOPCSMetadataModel
 
 logger = Logger()
 
+###########################################################################
+## For Security reason, most of informations to decode trame are removed ##
+###########################################################################
 
 # Enum for payloadType
 class PayloadType(Enum):
-    ARGOS_3 = "000"
-    ARGOS_NEO = "001"
-    ARGOS_4 = "010"
-    KINEIS_V1 = "011"
-    SPARE_1 = "100"
-    SPARE_2 = "101"
-    SPARE_3 = "110"
-    SPARE_4 = "111"
-
 
 # Enum for formatReference
 class FormatReference(Enum):
-    AOP_MONOSAT = 0x0000026C
-    AOP_MULTISAT = 0x0000035A
-    CS_2_SAT = 0x00000443
-    CS_10_SAT = 0x00000575
-    CS_17_SAT = 0x0000062F
-
 
 # Satellite identification table (Satellite Address (hexadecimal coding) : Satellite Mnemonic)
 satellite_identification = {
-    "FC": "NP",
-    "F9": "MB",
-    "FD": "SR",
-    "FB": "MC",
-    "F2": "O3",
-    "F1": "CS",
-    "F3": "MD",
-    "F4": "ME",
-    "B": "1A",
-    "16": "1B",
-    "1D": "1C",
-    "27": "1D",
-    "2C": "1E",
-    "31": "2A",
-    "3A": "2B",
-    "45": "2C",
-    "4E": "2D",
-    "53": "2E",
-    "58": "3A",
-    "62": "3B",
-    "69": "3C",
-    "74": "3D",
-    "7F": "3E",
-    "81": "4A",
-    "8A": "4B",
-    "97": "4C",
-    "9C": "4D",
-    "A6": "4E",
-    "AD": "5A",
-    "B0": "5B",
-    "BB": "5C",
-    "C4": "5D",
-    "CF": "5E",
+    "XX": "XX",
 }
 
-downlink_status = {"OFF": 0, "ARGOS_2": 0, "ARGOS_3": 3, "ARGOS_4": 4, "ARGOS_NEO": 0, "KINEIS_V1": 6}
+downlink_status = {}
 
-uplink_status = {"OFF": 0, "ARGOS_2": 2, "ARGOS_3": 3, "ARGOS_4": 4, "ARGOS_NEO": 5, "KINEIS_V1": 6}
+uplink_status = {}
 
 
 # Function to make the API call and fetch binary data
@@ -113,19 +69,9 @@ def parse_binary_data(binary_data: bytes) -> List[ParsedData]:
     index = 0
 
     while index < len(bit_data):
-        # broadcaster_reference = int(bit_data[index : index + 8], 2)
-        format_reference = int(bit_data[index + 8 : index + 40], 2)
-
-        if format_reference == FormatReference.AOP_MULTISAT.value:
-            parsed_data.append(parse_aop_multisat(bit_data, index))
-        elif format_reference == FormatReference.AOP_MONOSAT.value:
-            parsed_data.append(parse_aop_monosat(bit_data, index))
-        elif format_reference in [FormatReference.CS_2_SAT.value, FormatReference.CS_10_SAT.value, FormatReference.CS_17_SAT.value]:
-            parsed_data.append(parse_constellation_status(bit_data, index, format_reference))
-        else:
-            raise Exception(f"Unknown format reference: {format_reference}")
-
-        index += get_format_size_in_bits(format_reference)
+        # broadcaster_reference = int(0)
+        format_reference = 0
+        # if elif .. MONOSAT or MULTISAT
 
     return parsed_data
 
@@ -133,115 +79,57 @@ def parse_binary_data(binary_data: bytes) -> List[ParsedData]:
 # Function to parse AOP Multisat format
 def parse_aop_multisat(bit_data: str, index: int) -> ParsedData:
     aop_multisat: ParsedData = {}
-    aop_multisat["broadcasterReference"] = f"{int(bit_data[index : index + 8], 2):X}"
-    index += 8
-    aop_multisat["formatReference"] = FormatReference(int(bit_data[index : index + 32], 2)).name
-    index += 32
-    aop_multisat["satelliteReference"] = parse_aop_satellite_data(bit_data, index)
-    index += 141
-    aop_multisat["relativeSatellites"] = [parse_aop_relative_satellite(bit_data, index + i * 25) for i in range(4)]
-    index += 100
-    aop_multisat["frameCheckSequence"] = int(bit_data[index : index + 16], 2)
-    index += 16
+    # MULTISAT Treatment
     return aop_multisat
 
 
 # Function to parse AOP Monosat format
 def parse_aop_monosat(bit_data: str, index: int) -> ParsedData:
     aop_monosat: ParsedData = {}
-    aop_monosat["broadcasterReference"] = f"{int(bit_data[index : index + 8], 2):X}"
-    index += 8
-    aop_monosat["formatReference"] = FormatReference(int(bit_data[index : index + 32], 2)).name
-    index += 32
-    aop_monosat["satelliteData"] = parse_aop_satellite_data(bit_data, index)
-    index += 141
-    index += 1  # zeroPadding1
-    aop_monosat["frameCheckSequence"] = int(bit_data[index : index + 16], 2)
-    index += 16
+    # MONOSAT Treatment
     return aop_monosat
 
 
 # Function to parse Constellation Status format
 def parse_constellation_status(bit_data: str, index: int, format_reference: int) -> ParsedData:
     constellation_status: ParsedData = {}
-    constellation_status["broadcasterReference"] = f"{int(bit_data[index : index + 8], 2):X}"
-    index += 8
-    constellation_status["formatReference"] = FormatReference(int(bit_data[index : index + 32], 2)).name
-    index += 32
-    constellation_status["counter"] = int(bit_data[index : index + 6], 2)
-    index += 6
-    constellation_status["index"] = int(bit_data[index : index + 3], 2)
-    index += 3
-    constellation_status["totalNumberOfMessages"] = int(bit_data[index : index + 3], 2)
-    index += 3
-    num_satellites = {0x00000443: 2, 0x00000575: 10, 0x0000062F: 17}[format_reference]
-    constellation_status["satellitesStatus"] = [parse_satellite_status(bit_data, index + i * 13) for i in range(num_satellites)]
-    index += 13 * num_satellites
-    index += 5 if format_reference == 0x00000443 else 0  # zeroPaddingN
-    constellation_status["fcs"] = int(bit_data[index : index + 16], 2)
-    index += 16
+    #Constellation status Treatment
     return constellation_status
 
 
 # Function to parse satellite data
 def parse_aop_satellite_data(bit_data: str, index: int) -> ParsedData:
     satellite_data: ParsedData = {}
-    satellite_data["satelliteAddress"] = f"{int(bit_data[index : index + 8], 2):X}"
-    index += 8
-    date_bits = bit_data[index : index + 35]
-    date_value = int(date_bits, 2) * 0.125  # Convert to seconds with a precision of 0.125
-    offset_date = datetime(2020, 1, 1, 0, 0, 0, tzinfo=pytz.UTC)
-    satellite_data["date"] = (offset_date + timedelta(seconds=date_value)).isoformat(timespec="milliseconds")
-    index += 35
-    satellite_data["anLongitude"] = int(bit_data[index : index + 19], 2) * 0.001
-    index += 19
-    satellite_data["anLongitudeDrift"] = -28.000 + int(bit_data[index : index + 13], 2) * 0.001
-    index += 13
-    satellite_data["nodalPeriod"] = 84.4890 + int(bit_data[index : index + 18], 2) * 0.0001
-    index += 18
-    satellite_data["semiMajorAxis"] = 6378137 + int(bit_data[index : index + 20], 2)
-    index += 20
-    satellite_data["semiMajorAxisDecay"] = int(bit_data[index : index + 10], 2) * 0.1
-    index += 10
-    satellite_data["inclination"] = int(bit_data[index : index + 18], 2) * 0.001
+    # Satellite data Treatment
     return satellite_data
 
 
 # Function to parse relative satellite data
 def parse_aop_relative_satellite(bit_data: str, index: int) -> ParsedData:
     relative_satellite: ParsedData = {}
-    relative_satellite["satelliteAddressRelative"] = f"{int(bit_data[index : index + 8], 2):X}"
-    index += 8
-    relative_satellite["deltaDateRelative"] = -8200 + int(bit_data[index : index + 17], 2) * 0.125
+    # Relative Satellite Treatment
     return relative_satellite
 
 
 # Function to parse satellite status
 def parse_satellite_status(bit_data: str, index: int) -> ParsedData:
     satellite_status: ParsedData = {}
-    satellite_status["satelliteAddress"] = f"{int(bit_data[index : index + 8], 2):X}"
-    index += 8
-    payload_type_bits = bit_data[index : index + 3]
-    satellite_status["payloadType"] = PayloadType(payload_type_bits).name
-    index += 3
-    satellite_status["payloadUplinkMissionStatus"] = bool(int(bit_data[index : index + 1], 2))
-    index += 1
-    satellite_status["payloadDownlinkMissionStatus"] = bool(int(bit_data[index : index + 1], 2))
+    # Satellite Status Treatment
     return satellite_status
 
 
 # Function to get the format size in bits
 def get_format_size_in_bits(format_reference: int) -> int:
     if format_reference == FormatReference.AOP_MULTISAT.value:
-        return 297 + 7
+        return 0
     elif format_reference == FormatReference.AOP_MONOSAT.value:
-        return 198 + 2
+        return 1
     elif format_reference == FormatReference.CS_2_SAT.value:
-        return 99 + 5
+        return 2
     elif format_reference == FormatReference.CS_10_SAT.value:
-        return 198 + 2
+        return 3
     elif format_reference == FormatReference.CS_17_SAT.value:
-        return 297 + 7
+        return 4
     else:
         raise Exception(f"Unknown format reference: {format_reference}")
 
